@@ -1,9 +1,9 @@
 <?php
 
-namespace App\HTTP\Controllers;
+namespace App\Http\Controllers;
 
-use App\Model\Student;
-use Illuminate\HTTP\Request;
+use App\Models\Student;
+use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
 class StudentController extends Controller
@@ -33,8 +33,8 @@ class StudentController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request > validate([
-            'name' => 'reqired|string|max:255',
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
             'email' => 'required|email|max:255|unique:students,email',
             'phone' => 'required|string|max:20',
             'address' => 'nullable|string|max:500',
@@ -62,10 +62,10 @@ class StudentController extends Controller
         $student = Student::findOrFail($id);
 
         $validated = $request->validate([
-            'name' => 'required|string|mamx:255',
+            'name' => 'required|string|max:255',
             'email' => [
                 'required', 'email', 'max:255',
-                Rule::Unique('students')->ignore($student->id),
+                Rule::unique('students')->ignore($student->id),
             ],
             'phone' => 'required|string|max:20',
             'address' => 'nullable|string|max:500',
@@ -75,7 +75,7 @@ class StudentController extends Controller
         $student->update($validated);
 
         return redirect()
-            ->route('student.show', $student->id)
+            ->route('students.show', $student->id)
             ->with('success', "Student updated successfully!");
     }
 
@@ -86,12 +86,7 @@ class StudentController extends Controller
         $student -> delete();
 
         return redirect()
-            ->route('student.index')
+            ->route('students.index')
             ->with('success', "Student deleted successfully!");
     }
-
-
-
 }
-
-?>
