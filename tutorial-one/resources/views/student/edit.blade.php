@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Students</title>
-</head>
-<body>
+<x-layouts.app title="Edit Students">
 
     <h1>Edit Student</h1>
 
@@ -86,5 +79,4 @@
     Back to Students
     </a>
 
-</body>
-</html>
+</x-layouts.app>
