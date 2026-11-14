@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student details</title>
-</head>
-<body>
+<x-layouts.app title="Students Details">
     <h1>Student Details</h1>
 
     <p>
@@ -41,5 +34,4 @@
     <a href="/students/{{$student->id}}/edit">Edit Student</a>
 
     <a href="/students">Back to Students</a>
-</body>
-</html>
+</x-layouts.app>
