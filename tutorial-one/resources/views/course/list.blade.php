@@ -1,7 +1,5 @@
 
-@extends('layouts.app')
-
-@section('title', 'Courses')
+<x-layouts.app title="Courses">
 
 @section('content')
 
@@ -11,7 +9,7 @@
         Create Course
     </a>
 
-    <table>
+    <table >
         <thead>
             <tr>
                 <th>ID</th>
@@ -56,4 +54,4 @@
         </tbody>
     </table>
 
-@endsection
+</x-layouts.app >
