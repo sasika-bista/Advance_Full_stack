@@ -4,6 +4,7 @@ namespace App\Http\Requests\Student;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateStudentRequest extends FormRequest
 {
@@ -28,8 +29,7 @@ class UpdateStudentRequest extends FormRequest
                 'required',
                 'email',
                 'max:255',
-                Rule::unique('students','email')
-                    ->ignore($student->id)
+                Rule::unique('students', 'email')->ignore($this->student->id)
             ],
             'phone' => 'required|string|max:20',
             'address' => 'nullable|string|max:500',
