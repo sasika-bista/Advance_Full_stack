@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\Student\StoreStudentRequest;
+use App\Http\Requests\Student\UpdateStudentRequest;
+use App\Http\Resources\StudentResource;
+use App\Models\Student;
+use Illuminate\Http\JsonResponse;
 
 class studentController extends Controller
 {
@@ -19,7 +23,7 @@ class studentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreStudentRequest $request)
     {
         $student = Student::create($request->validated());
 
@@ -50,10 +54,10 @@ class studentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Student $student)
     {
         $student->delete();
 
-        return response()->json(null,204);
+        return response()->json(null, 204);
     }
 }
