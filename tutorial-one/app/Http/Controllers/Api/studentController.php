@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\Student\StoreStudentRequest;
+use App\Http\Requests\Student\UpdateStudentRequest;
+use App\Http\Resources\StudentResource;
+use App\Models\Student;
+use Illuminate\Http\JsonResponse;
 
 class studentController extends Controller
 {
